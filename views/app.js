@@ -27,7 +27,7 @@ $(document).on("click", "p", function () {
             //appends in the notes div class portion the hacker news article title
             $("#notes").append("<h2>" + data.title + "</h2>");
             //appends in the notes div class portion a new title
-            $("#notes").append("<input id='titleinput' name='title' >");
+            $("#notes").append("<input id='titleinput' name='title' placeholder:'Title' >");
             //appends in the notes div class portion the message box for the user to input their note
             $("#notes").append("<textarea id='bodyinput' name='body'></textarea>");
             //appends in the notes div class portion a submit button...

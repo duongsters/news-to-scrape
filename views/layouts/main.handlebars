@@ -1,11 +1,56 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>HackerNews Scraper</title>
-    </head>
-    <body>
-{{!-- placeholder for where the main content should be rendered --}}
-        {{{body}}}
-    </body>
+
+<head>
+    <meta charset="utf-8">
+    <title>HackerNews Scraper</title>
+    {{!-- <link rel="stylesheet" href="./css/style.css" type="text/css" /> --}}
+    <style>
+        body {
+            background-color: rgb(208, 246, 223)
+        }
+
+        #wrapper {
+            width: 960px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 5%;
+        }
+
+        #articles {
+            display: inline-block;
+            overflow: auto;
+            width: 60%;
+            height: 700px;
+        }
+
+        #notes {
+            float: right;
+            width: 30%;
+        }
+
+        textarea,
+        input {
+            display: block;
+            width: 100%;
+            background-color: #FCF5C7;
+        }
+
+        input {
+            height: 36px;
+            font-size: 24px;
+        }
+
+        textarea {
+            height: 200px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    {{!-- placeholder for where the main content should be rendered --}}
+    {{{body}}}
+</body>
+
 </html>

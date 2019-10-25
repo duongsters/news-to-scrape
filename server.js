@@ -43,9 +43,9 @@ app.get("/", function (req, res) {
     //to render the 'index.handlebars' template on to the homepage
     res.render("index");
 });
-// Route for scraping all New Articles into application
+// Route for scraping all Hacker News articles into application
 app.get("/scrape", function (req, res) {
-    //Using axios, we grab the the body of hacker news' body of articles
+    //Using axios, grab the the body of hacker news' body of articles
     axios.get("https://news.ycombinator.com/").then(function (response) {
         // Loads that Hacker News' articles & links through cheerio then saves it to $ for a shorthand selector
         var $ = cheerio.load(response.data);
