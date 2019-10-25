@@ -15,6 +15,10 @@ var db = require("./models");
 //----------Local host PORT setting----------------
 var PORT = process.env.PORT || 8080;
 
+
+
+
+
 //----------Registering Express Handlebars view engine --------
 app.engine("handlebars", exphbs());
 app.set("view engine", "handlebars");
@@ -32,8 +36,14 @@ app.use(express.static("views"));
 
 
 
-//---------Connection to MongoDB---------------
-mongoose.connect("mongodb://localhost/populate", { useNewUrlParser: true });
+//--Connecting my database to mlab
+const MONGO_URL = 'https://salty-taiga-01960.herokuapp.com/' || "mongodb://localhost/populate";
+
+mongoose.connect(MONGO_URL, { useNewUrlParser: true });
+
+
+// //---------Connection to MongoDB---------------
+// mongoose.connect("mongodb://localhost/populate", { useNewUrlParser: true });
 
 
 
