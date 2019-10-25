@@ -5,7 +5,7 @@
 'news-to-scrape' is an application that would scrape all articles from Hacker News so that I, and other avid tech junkies, could stay connected to newest news within the computer hacking industry! By using the technologies of: mongoose, MongoDB, Node.js, and various other technologies to scrape Hacker News' articles via https://news.ycombinator.com, store the articles through a MongoDB database, and append the stored information values to 'news-to-scrape' where you, the user are just one click away in getting all tech hacking related news!
 
 ## Demo link:
-https://sleepy-lowlands-10803.herokuapp.com/
+https://salty-taiga-01960.herokuapp.com/
 
 ## File Structure:
 ![](./public/assets/images/Screenshot.png)
