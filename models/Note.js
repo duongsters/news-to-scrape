@@ -4,7 +4,7 @@ var mongoose = require("mongoose");
 // Setting Schema constructor to 'Schema'
 var Schema = mongoose.Schema;
 
-// Similar toa Sequelize model, create a new NoteSchema object then...
+// Similar to Sequelize model, create a new NoteSchema object (aka user's note on chosen Hacker News article) then...
 var NoteSchema = new Schema({
     //gives the new NoteSchema the string value types of the title
     title: String,
