@@ -10,8 +10,16 @@ var app = express();
 
 var db = require("./models");
 
+//----------Local host PORT setting
 var PORT = 8080;
 
+//----------Registering Express Handlebars view engine 
 app.engine("handlebars", exphbs());
 app.set("view engine", "handlebars");
+
+//----------Middleware Configuration
+app.use(logger("dev"));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static("views"));
 
