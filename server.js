@@ -13,7 +13,7 @@ var app = express();
 var db = require("./models");
 
 //----------Local host PORT setting----------------
-var PORT = 8080;
+var PORT = process.env.PORT || 8080;
 
 //----------Registering Express Handlebars view engine --------
 app.engine("handlebars", exphbs());
