@@ -45,7 +45,7 @@ app.get("/", function (req, res) {
 });
 // Route for scraping all New Articles into application
 app.get("/scrape", function (req, res) {
-    //using axios, we grab the the body of hacker news' body of articles
+    //Using axios, we grab the the body of hacker news' body of articles
     axios.get("https://news.ycombinator.com/").then(function (response) {
         // Loads that Hacker News' articles & links through cheerio then saves it to $ for a shorthand selector
         var $ = cheerio.load(response.data);
@@ -93,7 +93,7 @@ app.get("/articles", function (req, res) {
             res.json(dbArticle);
         })
         .catch(function (err) {
-            // If an error occurred, send it to the client
+            // notifies client and error occured in grabbing the Hacker News articles
             res.json(err);
         });
 });
@@ -110,7 +110,38 @@ app.get("/articles/:id", function (req, res) {
             res.json(dbArticle);
         })
         .catch(function (err) {
-            // If an error occurred, send it to the client
+            // notification of error
             res.json(err);
         });
+});
+
+// Route for saving/updating an Article's associated Note
+app.post("/articles/:id", function (req, res) {
+    db.Note.create(req.body)
+
+        .then(function (dbNote) {
+            //if note was successfully created...
+            return db.Article.findOneAndUpdate(
+                //finds chosen Hacker News article '_id' equal to `req.params.id`. by the user then
+                { _id: req.params.id },
+                //updates specfic Hacker News article noted by the user to the mongo db
+                { note: dbNote._id },
+                //tells the query to return the updated User the original
+                { new: true });
+        })
+
+        .then(function (dbArticle) {
+            // sends back to the client the updated Hacker News article with notes by the user
+            res.json(dbArticle);
+        })
+        .catch(function (err) {
+            //messages user if an error occured
+            res.json(err);
+        });
+});
+
+
+//---------Listening PORT---------------
+app.listen(PORT, function () {
+    console.log("App running on port " + PORT + "!");
 });
